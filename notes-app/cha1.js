@@ -1,4 +1,8 @@
 //Challenge 1
-const add = require('./utils.js')
+const fs = require('fs')
 
-console.log(add(10, 5))
+fs.writeFileSync('notes.js', 'const getNotes = function() \n{\n\t return\'Your Note is this blah...\' \n} \nmodule.exports = getNotes');
+
+const file = require('./notes.js')
+
+console.log(file())
