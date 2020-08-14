@@ -1,8 +1,12 @@
 const fs = require('fs');
 
 const getNote = function(note) {
-    const readBuffer = fs.readFileSync('./notes/' + note + '.txt');
-    return readBuffer.toString();
+    try {
+        const readBuffer = fs.readFileSync('./notes/' + note + '.txt');
+        return readBuffer.toString();
+    } catch(e) {
+        return e.message;
+    }
 }
 
 const addNote = function(note, content) {
